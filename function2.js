@@ -1,3 +1,4 @@
+//warna untuk setiap jenis pokemon
 const typeColor = {
     bug: "#26de81",
     dragon: "#ffeaa7",
@@ -21,11 +22,11 @@ const typeColor = {
   const btn = document.getElementById("btn");
   
   let getPokeData = () => {
-    // Generate a random number between 1 and 150
+    // Untuk menghasilkan angka random dari 1-150
     let id = Math.floor(Math.random() * 150) + 1;
-    // Combine the pokeapi url with pokemon id
+    // menggabung url dan id dari pokeapi
     const finalUrl = url + id;
-    // Fetch generated URL
+    // Fetch url
     fetch(finalUrl)
       .then((response) => response.json())
       .then((data) => {
@@ -33,10 +34,10 @@ const typeColor = {
       });
   };
   
-  //Generate Card
+  //Mengeluarkan kartu pokemon
   
   let generateCard = (data) => {
-    // Get necessary data and assign it to variables
+    // Get data untuk dipasangkan dengan variable
     console.log(data);
     const hp = data.stats[0].base_stat;
     const imgSrc = data.sprites.other.dream_world.front_default;
@@ -45,7 +46,7 @@ const typeColor = {
     const statDefense = data.stats[2].base_stat;
     const statSpeed = data.stats[5].base_stat;
   
-    // Set themeColor based on pokemon type
+    // mengubah warna sesuai type pokemon
     const themeColor = typeColor[data.types[0].type.name];
     console.log(themeColor);
     card.innerHTML = `
